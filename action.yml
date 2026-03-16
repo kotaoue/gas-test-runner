@@ -1,0 +1,43 @@
+name: 'GAS Test Runner'
+description: 'Automatically discover and execute Google Apps Script test functions'
+author: 'kotaoue'
+
+inputs:
+  script_id:
+    description: 'Google Apps Script project ID'
+    required: true
+  credentials:
+    description: 'Google service account credentials JSON'
+    required: true
+  deployment_id:
+    description: 'Google Apps Script API-executable deployment ID. Required when devMode is false.'
+    required: false
+    default: ''
+  test_prefix:
+    description: 'Prefix used to identify test files and functions (case-insensitive)'
+    required: false
+    default: 'test'
+  test_suffix:
+    description: 'Suffix used to identify test files and functions (case-insensitive)'
+    required: false
+    default: 'test'
+  dev_mode:
+    description: 'Run functions in development mode (uses latest saved code, no deployment needed)'
+    required: false
+    default: 'true'
+
+outputs:
+  total:
+    description: 'Total number of test functions executed'
+  passed:
+    description: 'Number of test functions that passed'
+  failed:
+    description: 'Number of test functions that failed'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+
+branding:
+  icon: 'check-circle'
+  color: 'green'

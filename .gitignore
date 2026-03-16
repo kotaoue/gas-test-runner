@@ -1,0 +1,10 @@
+# Dependencies
+node_modules/
+
+# Build artifacts (lib is intermediate; dist is committed for the action)
+lib/
+
+# Misc
+*.log
+*.tgz
+.DS_Store
